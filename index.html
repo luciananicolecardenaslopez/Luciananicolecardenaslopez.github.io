@@ -1,1 +1,457 @@
-<h1>Hola, mi página funciona</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luciana Nicole Cárdenas López | Administración de Negocios, mención en Marketing</title>
+<meta name="description" content="Página web personal de Luciana Nicole Cárdenas López, estudiante de Administración de Negocios con mención en Marketing en la Universidad Católica San Pablo (UCSP), Arequipa.">
+<meta name="author" content="Luciana Nicole Cárdenas López">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --crema: #F8F3E9;
+    --crema-hondo: #EFE6D3;
+    --azul-claro: #C3DAF0;
+    --azul-medio: #7FA8D1;
+    --azul-tinta: #1F3550;
+    --texto: #2A3B50;
+    --texto-suave: #55657A;
+    --plata: #B9BFC8;
+    --plata-brillo: linear-gradient(90deg, #EEF0F3 0%, #A9B0BA 45%, #E4E7EB 70%, #98A0AB 100%);
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Hanken Grotesk", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--texto);
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  :focus-visible { outline: 3px solid var(--azul-medio); outline-offset: 3px; border-radius: 4px; }
+
+  .contenedor { width: min(1060px, 92%); margin: 0 auto; }
+
+  /* ---------- Encabezado ---------- */
+  header.barra {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(248, 243, 233, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--plata);
+  }
+  .barra .contenedor {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 0.7rem 0; flex-wrap: wrap;
+  }
+  .marca { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--azul-tinta); text-decoration: none; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; }
+  nav a { text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--texto-suave); padding: 0.2rem 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+  nav a:hover { color: var(--azul-tinta); border-bottom-color: var(--azul-medio); }
+
+  /* ---------- Portada ---------- */
+  .portada { padding: 5rem 0 4.5rem; }
+  .portada .contenedor { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3.5rem; align-items: center; }
+  .portada h1 {
+    font-family: var(--serif); font-weight: 500; color: var(--azul-tinta);
+    font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.05; margin: 0 0 1.4rem; letter-spacing: -0.01em;
+  }
+  .regla-plata { height: 4px; width: 100%; max-width: 360px; background: var(--plata-brillo); border-radius: 4px; margin-bottom: 1.6rem; transform-origin: left; animation: trazo 1.3s ease-out both; }
+  .portada .lema { font-size: 1.15rem; color: var(--texto); max-width: 34rem; margin: 0 0 2rem; }
+  .botones { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 600; font-size: 0.98rem;
+    padding: 0.75rem 1.5rem; border-radius: 999px; border: 1.5px solid var(--azul-tinta);
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .btn-primario { background: var(--azul-claro); color: var(--azul-tinta); border-color: var(--azul-claro); }
+  .btn-primario:hover { background: var(--azul-medio); border-color: var(--azul-medio); color: #fff; transform: translateY(-1px); }
+  .btn-borde { background: transparent; color: var(--azul-tinta); border-color: var(--plata); }
+  .btn-borde:hover { background: var(--azul-tinta); color: var(--crema); border-color: var(--azul-tinta); transform: translateY(-1px); }
+
+  .ficha {
+    background: var(--azul-claro); border: 1px solid var(--plata); border-radius: 18px;
+    padding: 2rem 1.8rem; box-shadow: 0 0 0 6px var(--crema), 0 0 0 7px var(--plata);
+  }
+  .ficha h2 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin: 0 0 1.1rem; color: var(--azul-tinta); }
+  .ficha dl { margin: 0; }
+  .ficha dt { font-size: 0.85rem; font-weight: 600; color: var(--azul-tinta); opacity: .75; margin-top: 0.9rem; }
+  .ficha dd { margin: 0.1rem 0 0; font-weight: 500; color: var(--azul-tinta); }
+
+  @keyframes trazo { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* ---------- Secciones ---------- */
+  section.seccion { padding: 4.5rem 0; }
+  section.seccion.alterna { background: var(--crema-hondo); border-top: 1px solid var(--plata); border-bottom: 1px solid var(--plata); }
+  .seccion h2.titulo { font-family: var(--serif); font-weight: 500; color: var(--azul-tinta); font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; margin: 0 0 0.6rem; }
+  .seccion h2.titulo::after { content: ""; display: block; height: 3px; width: 90px; margin-top: 0.8rem; background: var(--plata-brillo); border-radius: 3px; }
+  .intro { color: var(--texto-suave); max-width: 40rem; margin: 1.2rem 0 2.2rem; }
+  .seccion h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; color: var(--azul-tinta); margin: 0 0 0.8rem; }
+
+  .texto-largo { max-width: 46rem; }
+  .texto-largo p { margin: 1.3rem 0 0; }
+
+  /* Formación */
+  .formacion { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.2rem; }
+  .bloque { border-left: 3px solid var(--azul-medio); padding-left: 1.3rem; }
+  .bloque .periodo { font-size: 0.9rem; font-weight: 600; color: var(--azul-medio); margin: 0 0 0.2rem; }
+  .bloque p { margin: 0.4rem 0 0; }
+  .bloque .acciones { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+  .btn-pequeno { padding: 0.5rem 1.1rem; font-size: 0.9rem; }
+
+  .logo-ucsp {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #fff; border: 1px solid var(--plata); border-radius: 16px;
+    padding: 1rem 1.4rem; margin-top: 1.1rem; transition: box-shadow .2s, transform .2s;
+  }
+  .logo-ucsp:hover { box-shadow: 0 6px 18px rgba(31, 53, 80, 0.15); transform: translateY(-2px); }
+  .logo-ucsp img { height: 84px; width: auto; }
+
+  .idiomas { margin-top: 3rem; }
+  .idiomas ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .idiomas li { background: var(--azul-claro); color: var(--azul-tinta); padding: 0.5rem 1.2rem; border-radius: 999px; font-weight: 500; }
+
+  /* Cursos */
+  .grupo-cursos { margin-top: 2.4rem; }
+  .lista-cursos { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--plata); }
+  .lista-cursos li {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem;
+    padding: 0.85rem 0.4rem; border-bottom: 1px solid var(--plata); align-items: baseline;
+  }
+  .lista-cursos .curso { font-family: var(--serif); font-size: 1.15rem; color: var(--azul-tinta); font-weight: 500; }
+  .lista-cursos .docente { color: var(--texto-suave); }
+  .lista-cursos li:hover { background: rgba(195, 218, 240, 0.35); }
+
+  /* Competencias */
+  .competencias { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .competencias dl { margin: 0; }
+  .competencias dt { font-weight: 600; color: var(--azul-tinta); margin-top: 1.1rem; }
+  .competencias dd { margin: 0.1rem 0 0; color: var(--texto-suave); }
+
+  /* Intereses */
+  .intereses { list-style: none; margin: 1.8rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .intereses li {
+    font-family: var(--serif); font-size: 1.5rem; color: var(--azul-tinta);
+    padding: 0.7rem 1.7rem; border: 1.5px solid var(--plata); border-radius: 999px; background: var(--crema);
+  }
+
+  /* Metas */
+  .metas { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
+  .metas ul { margin: 0; padding-left: 1.2rem; }
+  .metas li { margin-bottom: 0.7rem; }
+  .metas li::marker { color: var(--azul-medio); }
+
+  /* Compañeros y redes */
+  .enlaces { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  .nota { color: var(--texto-suave); margin-top: 1.4rem; }
+
+  /* Contacto */
+  .contacto-lista { list-style: none; margin: 0; padding: 0; max-width: 34rem; }
+  .contacto-lista li { padding: 1rem 0; border-bottom: 1px solid var(--plata); }
+  .contacto-lista span { display: block; font-size: 0.9rem; font-weight: 600; color: var(--texto-suave); }
+  .contacto-lista a { font-size: 1.1rem; color: var(--azul-tinta); font-weight: 500; text-decoration-color: var(--azul-medio); text-underline-offset: 4px; }
+
+  footer { border-top: 1px solid var(--plata); padding: 2rem 0 2.6rem; text-align: center; color: var(--texto-suave); font-size: 0.92rem; }
+  footer .rayita { height: 3px; width: 120px; margin: 0 auto 1.2rem; background: var(--plata-brillo); border-radius: 3px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
+    .portada { padding: 3rem 0; }
+    .portada .contenedor, .formacion, .competencias, .metas { grid-template-columns: 1fr; }
+    .portada .contenedor { gap: 2.4rem; }
+    .lista-cursos li { grid-template-columns: 1fr; gap: 0.1rem; }
+    .barra .contenedor { justify-content: center; }
+    nav ul { justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .regla-plata { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="barra">
+  <div class="contenedor">
+    <a class="marca" href="#inicio">Luciana Cárdenas López</a>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#perfil">Perfil</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#cursos">Cursos y docentes</a></li>
+        <li><a href="#competencias">Competencias</a></li>
+        <li><a href="#intereses">Intereses</a></li>
+        <li><a href="#metas">Metas</a></li>
+        <li><a href="#companeros">Compañeros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- PORTADA -->
+  <section class="portada" id="inicio">
+    <div class="contenedor">
+      <div>
+        <h1>Luciana Nicole Cárdenas López</h1>
+        <div class="regla-plata" aria-hidden="true"></div>
+        <p class="lema">Estudiante de Administración de Negocios con mención en Marketing, interesada en comprender al consumidor y en construir marcas con propósito.</p>
+        <div class="botones">
+          <a class="btn btn-primario" href="#perfil">Conocer mi perfil</a>
+          <a class="btn btn-borde" href="#contacto">Contactarme</a>
+        </div>
+      </div>
+
+      <aside class="ficha" aria-label="Datos principales">
+        <h2>Datos principales</h2>
+        <dl>
+          <dt>Universidad</dt>
+          <dd>Universidad Católica San Pablo (2025 - actualidad)</dd>
+          <dt>Carrera</dt>
+          <dd>Administración de Negocios, mención en Marketing</dd>
+          <dt>Colegio</dt>
+          <dd>Sagrados Corazones (2012 - 2024)</dd>
+          <dt>Idiomas</dt>
+          <dd>Español nativo y francés (DELF B2)</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PERFIL PROFESIONAL -->
+  <section class="seccion alterna" id="perfil">
+    <div class="contenedor">
+      <h2 class="titulo">Perfil profesional</h2>
+      <div class="texto-largo">
+        <p>Soy estudiante de Administración de Negocios en la Universidad Católica San Pablo (UCSP), donde curso la carrera desde 2025 con mención en Marketing. Mi formación combina la visión integral de la gestión empresarial con un interés genuino por entender cómo piensan, sienten y deciden las personas.</p>
+        <p>Dentro del marketing me interesan especialmente la investigación de mercados, el branding de empresas digitales y el estudio del perfil y la psicología del consumidor. Considero que conocer a fondo a las personas a las que una marca se dirige es el punto de partida para crear propuestas de valor coherentes, relevantes y duraderas.</p>
+        <p>Me caracterizo por la organización, la proactividad y el trabajo en equipo, y valoro la comunicación clara como base de cualquier proyecto colectivo. Hablo español como lengua nativa y francés con nivel B2, lo que refuerza mi interés por desenvolverme en entornos internacionales. Mi meta es seguir formándome y, en el futuro, desarrollarme profesionalmente fuera del Perú.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section class="seccion" id="formacion">
+    <div class="contenedor">
+      <h2 class="titulo">Formación académica</h2>
+
+      <div class="formacion">
+        <article class="bloque">
+          <p class="periodo">2025 - actualidad</p>
+          <h3>Universidad Católica San Pablo</h3>
+          <p>Cursando Administración de Negocios con mención en Marketing, una formación orientada a la gestión de organizaciones, el análisis del mercado y la toma de decisiones estratégicas.</p>
+          <div class="acciones">
+            <a class="btn btn-primario btn-pequeno" href="https://ucsp.edu.pe/carreras/administracion-negocios/?tab=institucional" target="_blank" rel="noopener">Ver mi carrera</a>
+          </div>
+          <a class="logo-ucsp" href="https://ucsp.edu.pe" target="_blank" rel="noopener" aria-label="Visitar el sitio web de la Universidad Católica San Pablo">
+            <img src="IMG_2427.png" alt="Logo de la Universidad Católica San Pablo">
+          </a>
+        </article>
+
+        <article class="bloque">
+          <p class="periodo">2012 - 2024</p>
+          <h3>Colegio Particular de los Sagrados Corazones</h3>
+          <p>Realicé aquí mis estudios escolares, una etapa en la que desarrollé las bases de mi disciplina, mi formación en valores y mi interés por los idiomas.</p>
+          <div class="acciones">
+            <a class="btn btn-primario btn-pequeno" href="https://www.ssccaqp.edu.pe" target="_blank" rel="noopener">Visitar el colegio</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="idiomas">
+        <h3>Idiomas</h3>
+        <ul>
+          <li>Español, lengua nativa</li>
+          <li>Francés, examen DELF B2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS Y DOCENTES -->
+  <section class="seccion alterna" id="cursos">
+    <div class="contenedor">
+      <h2 class="titulo">Cursos de la carrera y docentes</h2>
+      <p class="intro">Estos son los cursos que he llevado en la Universidad Católica San Pablo, junto con los docentes que los han dictado.</p>
+
+      <div class="grupo-cursos">
+        <h3>Primer ciclo</h3>
+        <ul class="lista-cursos">
+          <li><span class="curso">Matemática Básica</span><span class="docente">Maribel Mariela Quiroz Zegarra</span></li>
+          <li><span class="curso">Comunicación I</span><span class="docente">María Teresa Calle San Román de Bustamante</span></li>
+          <li><span class="curso">Contabilidad para Administradores</span><span class="docente">Edgard Fredy Leiva Flores</span></li>
+          <li><span class="curso">Economía General</span><span class="docente">Marcela Salazar Soler</span></li>
+          <li><span class="curso">Fundamentos de la Administración</span><span class="docente">Ángel Leonardo Ramos Rodríguez</span></li>
+          <li><span class="curso">Literatura y Teatro</span><span class="docente">Patricia Carpio de Delgado</span></li>
+          <li><span class="curso">Introducción a la Vida Universitaria</span><span class="docente">Gonzalo Max Portugal Yabar</span></li>
+        </ul>
+      </div>
+
+      <div class="grupo-cursos">
+        <h3>Segundo ciclo</h3>
+        <ul class="lista-cursos">
+          <li><span class="curso">Cálculo en una Variable</span><span class="docente">Maribel Mariela Quiroz Zegarra</span></li>
+          <li><span class="curso">Antropología</span><span class="docente">Patricia Vela Gómez</span></li>
+          <li><span class="curso">Estadística y Probabilidades</span><span class="docente">Mg. Rolando Linares Delgado y Mg. Daniel Huanca Mosaja</span></li>
+          <li><span class="curso">Costos y Planeamiento Presupuestal</span><span class="docente">Julio César Lizárraga Zegarra</span></li>
+          <li><span class="curso">Historia de Occidente II</span><span class="docente">Antonio Besich Adrian</span></li>
+          <li><span class="curso">Desarrollo de Habilidades para Trabajo en Equipo</span><span class="docente">Claudia Mabel Calisaya Carpio</span></li>
+          <li><span class="curso">Introducción a la Computación</span><span class="docente">Ernesto Cuadros-Vargas</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENCIAS Y HABILIDADES -->
+  <section class="seccion" id="competencias">
+    <div class="contenedor">
+      <h2 class="titulo">Competencias y habilidades</h2>
+
+      <div class="competencias" style="margin-top:2rem;">
+        <div>
+          <h3>Habilidades blandas</h3>
+          <dl>
+            <dt>Liderazgo</dt>
+            <dd>Motivo y oriento a mi equipo hacia objetivos comunes, asumiendo responsabilidad por los resultados.</dd>
+            <dt>Productividad</dt>
+            <dd>Priorizo tareas y aprovecho mi tiempo para cumplir con eficiencia y calidad.</dd>
+            <dt>Resiliencia</dt>
+            <dd>Afronto los desafíos con constancia y los convierto en oportunidades de aprendizaje.</dd>
+            <dt>Buena comunicación</dt>
+            <dd>Expreso mis ideas con claridad y escucho con atención para llegar a acuerdos.</dd>
+            <dt>Trabajo en equipo</dt>
+            <dd>Colaboro de manera respetuosa y aporto desde mis fortalezas al logro colectivo.</dd>
+            <dt>Creatividad</dt>
+            <dd>Propongo ideas originales y enfoques distintos para resolver problemas.</dd>
+            <dt>Proactividad</dt>
+            <dd>Me anticipo a las necesidades y tomo la iniciativa sin esperar indicaciones.</dd>
+            <dt>Organización</dt>
+            <dd>Planifico mis actividades académicas y personales de forma ordenada y sostenida.</dd>
+          </dl>
+        </div>
+
+        <div>
+          <h3>Habilidades técnicas</h3>
+          <dl>
+            <dt>Excel</dt>
+            <dd>Organización y análisis de información en hojas de cálculo.</dd>
+            <dt>Canva</dt>
+            <dd>Diseño de piezas gráficas y presentaciones visuales.</dd>
+            <dt>CapCut</dt>
+            <dd>Edición de videos para la creación de contenido.</dd>
+            <dt>Ecosistema de Microsoft</dt>
+            <dd>Manejo de las herramientas de Microsoft para el trabajo académico y colaborativo.</dd>
+            <dt>PowerPoint</dt>
+            <dd>Cuento con curso y certificado en la herramienta para elaborar presentaciones profesionales.</dd>
+            <dt>Word</dt>
+            <dd>Redacción y formato de informes y documentos académicos.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESES -->
+  <section class="seccion alterna" id="intereses">
+    <div class="contenedor">
+      <h2 class="titulo">Intereses</h2>
+      <ul class="intereses">
+        <li>Pintura</li>
+        <li>Violín</li>
+        <li>Tiro con arco</li>
+        <li>Atletismo</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- METAS PROFESIONALES -->
+  <section class="seccion" id="metas">
+    <div class="contenedor">
+      <h2 class="titulo">Metas profesionales</h2>
+
+      <div class="metas">
+        <div>
+          <h3>Corto y mediano plazo</h3>
+          <ul>
+            <li>Participar en el programa de Work and Travel para vivir una experiencia laboral y cultural internacional.</li>
+            <li>Trabajar fuera del Perú, con España como destino de especial interés.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Largo plazo</h3>
+          <ul>
+            <li>Investigar sobre la psicología del consumidor.</li>
+            <li>Realizar una maestría en esta área.</li>
+            <li>Profundizar en el marketing experiencial.</li>
+            <li>Desarrollarme en el marketing empresarial y digital.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPAÑEROS -->
+  <section class="seccion alterna" id="companeros">
+    <div class="contenedor">
+      <h2 class="titulo">Páginas de mis compañeros</h2>
+      <p class="intro">Te invito a conocer los perfiles de otros compañeros de la carrera.</p>
+      <ul class="enlaces">
+        <li><a class="btn btn-borde" href="https://nataliaortizdiezcanseco.github.io/" target="_blank" rel="noopener">Natalia Ortiz Diez Canseco</a></li>
+        <li><a class="btn btn-borde" href="https://mattiasgaldosibarcena.github.io" target="_blank" rel="noopener">Mattias Gabriel Galdos Ibárcena</a></li>
+      </ul>
+      <p class="nota">Próximamente se sumarán más páginas.</p>
+    </div>
+  </section>
+
+  <!-- REDES SOCIALES -->
+  <section class="seccion" id="redes">
+    <div class="contenedor">
+      <h2 class="titulo">Redes sociales</h2>
+      <ul class="enlaces" style="margin-top:2rem;">
+        <li><a class="btn btn-primario" href="https://www.instagram.com/luciana_cardenas_?vrfl=MWt5OXJmeTNtc3gyMg==" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a class="btn btn-primario" href="https://www.linkedin.com/in/luciana-nicole-c%C3%A1rdenas-l%C3%B3pez-65a3b32ba" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="seccion alterna" id="contacto">
+    <div class="contenedor">
+      <h2 class="titulo">Contacto</h2>
+      <p class="intro">Si deseas ponerte en contacto conmigo, puedes escribirme a cualquiera de estos correos.</p>
+      <ul class="contacto-lista">
+        <li><span>Correo personal</span><a href="mailto:lucardenas714@gmail.com">lucardenas714@gmail.com</a></li>
+        <li><span>Correo institucional</span><a href="mailto:luciana.cardenas.lopez@ucsp.edu.pe">luciana.cardenas.lopez@ucsp.edu.pe</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="contenedor">
+    <div class="rayita" aria-hidden="true"></div>
+    <p>© 2026 Luciana Nicole Cárdenas López. Arequipa, Perú.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
